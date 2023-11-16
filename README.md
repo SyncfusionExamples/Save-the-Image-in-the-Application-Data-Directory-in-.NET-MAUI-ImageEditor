@@ -1,4 +1,4 @@
-# Save-the-Image-in-the-Application-Data-Directory-in-.NET-MAUI-ImageEditor
+# Save the Image in the Application Data Directory in .NET MAUI ImageEditor
 
 This KB contains a sample of how to save the Image in the Application Data Directory in .NET MAUI ImageEditor (SfImageEditor).
 
