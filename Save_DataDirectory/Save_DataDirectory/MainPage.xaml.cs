@@ -12,14 +12,8 @@ public partial class MainPage : ContentPage
     {
         e.Cancel = true;
         var stream = e.ImageStream;
-        var dDriveDirectory = "D:\\Test"; // Specify the directory on the D: drive where you want to save the image
-
-        if (!Directory.Exists(dDriveDirectory))
-        {
-            Directory.CreateDirectory(dDriveDirectory);
-        }
-
-        var fileFullPath = Path.Combine(dDriveDirectory, "SavedImage.png");
+        var dataDirectory = FileSystem.Current.AppDataDirectory; // Use the application's data directory
+        var fileFullPath = Path.Combine(dataDirectory, "SavedImage.png");
         SaveStreamToFile(fileFullPath, stream);
     }
     public void SaveStreamToFile(string fileFullPath, Stream stream)
@@ -31,7 +25,7 @@ public partial class MainPage : ContentPage
         {
             // Fill the bytes[] array with the stream data
             byte[] bytesInStream = new byte[stream.Length];
-            stream.Read(bytesInStream, 0, (int)bytesInStream.Length);
+            stream.Read(bytesInStream, 0, bytesInStream.Length);
 
             // Use FileStream object to write to the specified file
             fileStream.Write(bytesInStream, 0, bytesInStream.Length);
